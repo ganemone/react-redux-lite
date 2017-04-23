@@ -4,6 +4,7 @@
   "description": "Light weight version of react-redux",
   "main": "dist/react-redux-lite.js",
   "scripts": {
+    "lint": "eslint src/",
     "test": "webpack --env test && npm run just-test",
     "just-test": "node dist-test/index.js",
     "build": "webpack",
@@ -22,12 +23,19 @@
     "babel-loader": "^6.4.1",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-loader": "^1.7.1",
+    "eslint-plugin-react": "^6.10.3",
+    "jsdom": "^9.12.0",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
+    "react-addons-test-utils": "^15.5.1",
+    "react-dom": "^15.5.4",
+    "redux": "^3.6.0",
     "tape": "^4.6.3",
     "webpack": "^2.4.1",
+    "webpack-node-externals": "^1.5.4",
     "yargs": "^7.1.0"
   }
 }

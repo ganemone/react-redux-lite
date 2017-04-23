@@ -1,5 +1,6 @@
 /*global __dirname, require, module*/
 
+const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
 
@@ -25,7 +26,8 @@ const config = {
     libraryTarget: 'commonjs',
   },
 
-  externals: ['react', 'prop-types'],
+  target: 'node',
+  externals: [nodeExternals()],
 
   module: {
     rules: [
@@ -34,11 +36,11 @@ const config = {
         loader: 'babel-loader',
         exclude: /(node_modules|bower_components)/,
       },
-      {
-        test: /(\.jsx|\.js)$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/,
-      },
+      // {
+      //   test: /(\.jsx|\.js)$/,
+      //   loader: 'eslint-loader',
+      //   exclude: /node_modules/,
+      // },
     ],
   },
   resolve: {
