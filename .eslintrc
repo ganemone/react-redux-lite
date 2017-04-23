@@ -1,0 +1,8 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["eslint:recommended"],
+  "globals": {
+    "process": false,
+    "console": false,
+  }
+}

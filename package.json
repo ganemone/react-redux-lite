@@ -1,0 +1,31 @@
+{
+  "name": "react-redux-lite",
+  "version": "1.0.0",
+  "description": "Light weight version of react-redux",
+  "main": "lib/react-redux-lite.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --env build",
+    "dev": "webpack --progress --colors --watch --env dev"
+  },
+  "author": "Giancarlo Anemone",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^15.5.4",
+    "prop-types": "^15.5.8"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.2",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-loader": "^1.7.1",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "webpack": "^2.4.1",
+    "yargs": "^7.1.0"
+  }
+}
