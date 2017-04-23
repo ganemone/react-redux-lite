@@ -1,17 +1,30 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import shallowEqual from './shallow-equal.js';
+import {bindActionCreators} from 'redux';
+
+export default function wrapActionCreators(actionCreators) {
+  return dispatch => bindActionCreators(actionCreators, dispatch);
+}
 
 export function connect(mapStateToProps, mapDispatchToProps) {
   return function withConnect(wrappedComponent) {
     class Connect extends Component {
       constructor(props, context) {
         super(props, context);
+        const {store} = context;
+        const {dispatch, getState} = store;
         this.onStateChange = this.onStateChange.bind(this);
-        this.lastProps = mapStateToProps(context.store.getState());
-        this.dispatchProps = mapDispatchToProps
-          ? mapDispatchToProps(context.store.dispatch)
-          : {};
+        this.lastProps = mapStateToProps(getState());
+        this.dispatchProps = {dispatch};
+        if (typeof mapDispatchToProps === 'function') {
+          this.dispatchProps = mapDispatchToProps(dispatch);
+        } else if (typeof mapDispatchToProps === 'object') {
+          this.dispatchProps = bindActionCreators(
+            mapDispatchToProps,
+            dispatch
+          );
+        }
       }
       componentDidMount() {
         const store = this.context.store;

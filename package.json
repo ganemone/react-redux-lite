@@ -14,6 +14,7 @@
   "license": "ISC",
   "peerDependencies": {
     "react": "^15.5.4",
+    "redux": "^3.6.0",
     "prop-types": "^15.5.8"
   },
   "devDependencies": {
