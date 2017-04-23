@@ -2,11 +2,12 @@
   "name": "react-redux-lite",
   "version": "1.0.0",
   "description": "Light weight version of react-redux",
-  "main": "lib/react-redux-lite.js",
+  "main": "dist/react-redux-lite.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --env build",
-    "dev": "webpack --progress --colors --watch --env dev"
+    "test": "webpack --env test && npm run just-test",
+    "just-test": "node dist-test/index.js",
+    "build": "webpack",
+    "dev": "webpack --progress --colors --watch"
   },
   "author": "Giancarlo Anemone",
   "license": "ISC",
@@ -25,6 +26,7 @@
     "eslint-loader": "^1.7.1",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
+    "tape": "^4.6.3",
     "webpack": "^2.4.1",
     "yargs": "^7.1.0"
   }

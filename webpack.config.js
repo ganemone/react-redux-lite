@@ -1,26 +1,26 @@
 /*global __dirname, require, module*/
 
-const webpack = require('webpack');
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
 
 let libraryName = 'react-redux-lite';
 
-let plugins = [], outputFile;
-
-if (env === 'build') {
-  plugins.push(new UglifyJsPlugin({minimize: true}));
-  outputFile = libraryName + '.min.js';
+let plugins = [], outputFile, entryFile, outputDir;
+if (env === 'test') {
+  entryFile = './src/test/index.js';
+  outputFile = 'index.js';
+  outputDir = 'dist-test';
 } else {
+  outputDir = 'dist';
+  entryFile = './src/index.js';
   outputFile = libraryName + '.js';
 }
 
 const config = {
-  entry: __dirname + '/src/index.js',
+  entry: entryFile,
   devtool: 'source-map',
   output: {
-    path: __dirname + '/lib',
+    path: path.join(__dirname, outputDir),
     filename: outputFile,
     libraryTarget: 'commonjs',
   },
